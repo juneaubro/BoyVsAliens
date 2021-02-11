@@ -33,8 +33,6 @@ public class PlayerMovement : PlayerMovementController
                 {
                     jumpCount = 2;
                 }
-
-                jumpCount = 1;
             }
             else if(jumpCount == 1)
             {
