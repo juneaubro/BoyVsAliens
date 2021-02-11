@@ -10,6 +10,7 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] protected float jumpForce = 4f;
     [SerializeField] protected float mass = 1f;
     [SerializeField] protected float damping = 5f;
+    [SerializeField] protected float gravityMultiplier = 5f;
 
     protected CharacterController characterController;
     protected float velocityY;
@@ -39,7 +40,7 @@ public class PlayerMovementController : MonoBehaviour
             velocityY = 0f;
         }
 
-        velocityY += gravity * Time.deltaTime;
+        velocityY += gravity * gravityMultiplier * Time.deltaTime;
 
         Vector3 velocity = movementInput * movementSpeed + Vector3.up * velocityY;
 
@@ -56,7 +57,7 @@ public class PlayerMovementController : MonoBehaviour
     public void ResetImpact()
     {
         currentImpact = Vector3.zero;
-        velocityY = 0f;
+        //velocityY = 0f;
     }
 
     public void ResetImpactY()
