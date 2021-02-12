@@ -4073,6 +4073,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1424718301508747797, guid: 130c7e14e949fe84fb447108363cdd85, type: 3}
+      propertyPath: spinSpeed
+      value: 10000
+      objectReference: {fileID: 0}
     - target: {fileID: 1424718301508747802, guid: 130c7e14e949fe84fb447108363cdd85, type: 3}
       propertyPath: m_Name
       value: Spin Platform
