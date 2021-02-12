@@ -19,11 +19,6 @@ public class GreenAlienAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();    
     }
 
-    private void Update()
-    {
-        
-    }
-
     private void OnTriggerStay(Collider other)
     {
         if(other.gameObject.tag == "Player")
