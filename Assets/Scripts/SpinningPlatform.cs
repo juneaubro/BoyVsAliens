@@ -7,10 +7,11 @@ public class SpinningPlatform : MonoBehaviour
     public bool RandomValues;
     public bool RandomSpinSpeed;
 
+    public static float spinSpeed = 1000f;
+
     [SerializeField] private float spinZSpeed;
     [SerializeField] private float spinXSpeed;
     [SerializeField] private float spinYSpeed;
-    [SerializeField] private float spinSpeed;
     [SerializeField] private float randomMin;
     [SerializeField] private float randomMax;
     [SerializeField] private float randSpinSpeedMin;
