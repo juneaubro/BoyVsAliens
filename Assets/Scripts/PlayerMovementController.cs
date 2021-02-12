@@ -10,7 +10,7 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] protected float jumpForce = 4f;
     [SerializeField] protected float mass = 1f;
     [SerializeField] protected float damping = 5f;
-    [SerializeField] protected float gravityMultiplier = 5f;
+    [SerializeField] protected float gravityMultiplier = 1f;
 
     protected CharacterController characterController;
     protected float velocityY;

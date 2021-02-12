@@ -11,6 +11,10 @@ public class DashScript : MonoBehaviour
     private float dashForce;
     [SerializeField]
     private float dashDura;
+    [SerializeField]
+    private float cooldown;
+
+    private float cooldownCounter = 10;
 
     PlayerMovementController playerMovementController;
 
@@ -20,10 +24,14 @@ public class DashScript : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && cooldownCounter > cooldown)
         {
             StartCoroutine(Dash());
+
+            cooldownCounter = 0;
         }
+
+        cooldownCounter += Time.deltaTime;
     }
 
     public IEnumerator Dash()
