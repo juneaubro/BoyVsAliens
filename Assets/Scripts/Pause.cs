@@ -9,7 +9,7 @@ public class Pause : MonoBehaviour
     private float originalSpinSpeed;
     private float originalDampen;
 
-    private bool pause;
+    public static bool pause;
     private void Start()
     {
         pause = false;
@@ -49,7 +49,7 @@ public class Pause : MonoBehaviour
 
             MovingPlatform.dampen = originalDampen;
 
-            Time.timeScale = originalTimeScale;
+            Time.timeScale = 1;
 
             pause = false;
         }
