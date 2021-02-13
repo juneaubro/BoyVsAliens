@@ -7,11 +7,12 @@ public class SpinningPlatform : MonoBehaviour
     public bool RandomValues;
     public bool RandomSpinSpeed;
 
-    public static float spinSpeed = 1000f;
+    public static float SpinSpeed;
 
     [SerializeField] private float spinZSpeed;
     [SerializeField] private float spinXSpeed;
     [SerializeField] private float spinYSpeed;
+    [SerializeField] private float spinSpeed;
     [SerializeField] private float randomMin;
     [SerializeField] private float randomMax;
     [SerializeField] private float randSpinSpeedMin;
@@ -21,8 +22,15 @@ public class SpinningPlatform : MonoBehaviour
     private float spinX;
     private float spinY;
 
+    private void Start()
+    {
+        SpinSpeed = spinSpeed;
+    }
+
     private void Update()
     {
+        spinSpeed = SpinSpeed;
+
         transform.localRotation = Quaternion.Euler(transform.localRotation.z + spinZ, transform.localRotation.x + spinX, transform.localRotation.y + spinY);
 
         if (RandomValues)

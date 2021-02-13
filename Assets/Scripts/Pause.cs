@@ -7,13 +7,15 @@ public class Pause : MonoBehaviour
     public GameObject pauseScreen;
     private float originalTimeScale;
     private float originalSpinSpeed;
+    private float originalDampen;
 
     private bool pause;
     private void Start()
     {
         pause = false;
         originalTimeScale = Time.timeScale;
-        originalSpinSpeed = SpinningPlatform.spinSpeed;
+        originalSpinSpeed = SpinningPlatform.SpinSpeed;
+        originalDampen = MovingPlatform.dampen;
     }
 
     private void Update()
@@ -29,7 +31,9 @@ public class Pause : MonoBehaviour
 
             Cursor.lockState = CursorLockMode.None;
 
-            SpinningPlatform.spinSpeed = 0f;
+            SpinningPlatform.SpinSpeed = 0f;
+
+            MovingPlatform.dampen = 0f;
 
             Time.timeScale = 0f;
 
@@ -41,7 +45,9 @@ public class Pause : MonoBehaviour
 
             Cursor.lockState = CursorLockMode.Locked;
 
-            SpinningPlatform.spinSpeed = originalSpinSpeed;
+            SpinningPlatform.SpinSpeed = originalSpinSpeed;
+
+            MovingPlatform.dampen = originalDampen;
 
             Time.timeScale = originalTimeScale;
 

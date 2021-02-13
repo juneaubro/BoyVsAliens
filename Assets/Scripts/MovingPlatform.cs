@@ -4,45 +4,65 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    [SerializeField] private float xOffset;
-    [SerializeField] private float yOffset;
-    [SerializeField] private float zOffset;
+    public static float dampen;
+
+    [SerializeField] private float Offset;
     [SerializeField] private float dampening;
-    [SerializeField] private float timer;
 
-    private float count = 0f;
-    private bool right = false;
+    private bool dir = true;
+    private bool running = true;
 
-    Vector3 newPos;
+    Vector3 newPositivePos;
+    Vector3 newNegativePos;
+
+    private void Start()
+    {
+        dampen = dampening;
+        newPositivePos = new Vector3(transform.position.x, transform.position.y, transform.position.z + Offset);
+        newNegativePos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+    }
 
     private void LateUpdate()
     {
-        if (count < timer && right == false)
+        dampening = dampen;
+
+        // move left
+        //if (transform.position != newPositivePos && dir == true)
+        //{
+        //    transform.position = Vector3.Lerp(transform.position, newPositivePos, dampening);
+
+        //    if(((newPositivePos.z) - (transform.position.z)) < 2)
+        //    {
+        //        dir = false;
+        //    }
+        //}
+
+        //if(transform.position != newNegativePos && dir == false)
+        //{
+        //    transform.position = Vector3.Lerp(transform.position, newNegativePos, dampening);
+
+        //    if (((newNegativePos.z) - (transform.position.z)) < 2) // fuck two x 2
+        //    {
+        //        dir = true;
+        //    }
+        //}
+
+        if (transform.position.z <= newPositivePos.z && running == true)
         {
-            newPos = new Vector3(transform.position.x + xOffset, transform.position.y + yOffset, transform.position.z + zOffset);
-            transform.position = Vector3.Lerp(transform.position, newPos, dampening);
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + dampening); // moves left
 
-            count += Time.deltaTime;
-
-            if(count > timer)
-            {
-                right = true;
-                count = 0;
-            }
+            if (transform.position.z >= newPositivePos.z)
+                running = false;
         }
-        else if(count < timer && right == true)
+
+        if(transform.position.z >= newNegativePos.z && running == false)
         {
-            newPos = new Vector3(transform.position.x - xOffset, transform.position.y - yOffset, transform.position.z - zOffset);
-            transform.position = Vector3.Lerp(transform.position, newPos, dampening);
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - dampening);
 
-            count += Time.deltaTime;
-
-            if (count > timer)
-            {
-                right = false;
-                count = 0;
-            }
+            if (transform.position.z <= newNegativePos.z)
+                running = true;
         }
-        
+
+        // Debug.Log($"Running = {running}\nTpos.z = {transform.position.z}\nnewpos = {newPositivePos.z}\nnewneg = {newNegativePos.z}");
     }
 }
