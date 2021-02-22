@@ -5,9 +5,14 @@ using UnityEngine;
 public class PlayerMovement : PlayerMovementController
 {
     private int jumpCount = 0;
+    private AudioSource playerSounds;
+    
+   
+
 
     protected override void Update()
     {
+    
         base.Update();
 
         if (characterController.isGrounded)
@@ -18,9 +23,13 @@ public class PlayerMovement : PlayerMovementController
 
     protected override void Jump()
     {
+      
+       
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(jumpCount == 0)
+            
+
+            if (jumpCount == 0)
             {
                 ResetImpactY();
                 AddForce(Vector3.up, jumpForce);
@@ -42,5 +51,7 @@ public class PlayerMovement : PlayerMovementController
                 jumpCount = 2;
             }
         }
+
+       
     }
 }

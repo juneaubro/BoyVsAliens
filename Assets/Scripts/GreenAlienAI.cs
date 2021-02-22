@@ -7,23 +7,29 @@ public class GreenAlienAI : MonoBehaviour
 {
     [SerializeField] private float detectionLength;
 
-    public bool follow;
+ 
 
     private Ray alienRay;
     private RaycastHit rayHit;
 
     private NavMeshAgent agent;
+ 
+    
 
     private void Start()
     {
-        agent = GetComponent<NavMeshAgent>();    
+        agent = GetComponent<NavMeshAgent>();
+      
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             agent.SetDestination(other.gameObject.transform.position);
+
         }
+
     }
+
 }

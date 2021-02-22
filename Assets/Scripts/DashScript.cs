@@ -17,10 +17,12 @@ public class DashScript : MonoBehaviour
     private float cooldownCounter = 10;
 
     PlayerMovementController playerMovementController;
+    
 
     private void Start()
     {
         playerMovementController = GetComponent<PlayerMovementController>();
+        
     }
     private void Update()
     {
@@ -29,6 +31,8 @@ public class DashScript : MonoBehaviour
             StartCoroutine(Dash());
 
             cooldownCounter = 0;
+
+            
         }
 
         cooldownCounter += Time.deltaTime;
