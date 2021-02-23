@@ -5,10 +5,6 @@ using UnityEngine.AI;
 
 public class GreenAlienAI : MonoBehaviour
 {
-    [SerializeField] private float detectionLength;
-
- 
-
     private Ray alienRay;
     private RaycastHit rayHit;
 
