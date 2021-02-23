@@ -20,19 +20,6 @@ public class HealthBarScreenSpaceController : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            TakeDamage(10);
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Reset();
-        }
-    }
-
     public void TakeDamage(int damage)
     {
         healthBarSlider.value -= damage;

@@ -10,8 +10,6 @@ public class BlakAlienAI : MonoBehaviour
 
     private NavMeshAgent agent;
  
-    
-
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -27,5 +25,4 @@ public class BlakAlienAI : MonoBehaviour
         }
 
     }
-
 }
