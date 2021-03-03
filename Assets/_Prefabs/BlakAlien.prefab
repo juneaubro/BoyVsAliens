@@ -441,6 +441,7 @@ GameObject:
   - component: {fileID: 6349827699200301979}
   - component: {fileID: 6349827699200301980}
   - component: {fileID: 6349827699200301981}
+  - component: {fileID: 7300971560850501025}
   m_Layer: 0
   m_Name: BlakAlien
   m_TagString: BadBlack
@@ -581,6 +582,19 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 7.994155, y: 3.7146091, z: 6.4746246}
+  m_Center: {x: 0, y: 0.043966472, z: 0.589657}
+--- !u!135 &7300971560850501025
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6349827699200301982}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 78.76
   m_Center: {x: 0, y: 0.043966472, z: 0.589657}
 --- !u!1 &6349827699972620034
 GameObject:

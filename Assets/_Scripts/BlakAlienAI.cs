@@ -32,32 +32,32 @@ public class BlakAlienAI : MonoBehaviour
         //}
     }
 
-    private void OnDrawGizmos()
-    {
-        hit = Physics.BoxCast(transform.position,transform.lossyScale,transform.forward,out rayHit, transform.rotation, maxDistance, player);
-
-        if (hit)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawRay(transform.position, transform.forward * rayHit.distance);
-            Gizmos.DrawCube(transform.position + transform.forward * rayHit.distance, transform.lossyScale);
-            transform.LookAt(playerPos);
-            agent.SetDestination(playerPos.position);
-        }
-        else
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawRay(transform.position, transform.forward * maxDistance);
-        }
-    }
-
-    //private void OnTriggerStay(Collider other)
+    //private void OnDrawGizmos()
     //{
-    //    if (other.gameObject.tag == "Player")
+    //    hit = Physics.BoxCast(transform.position,transform.lossyScale,transform.forward,out rayHit, transform.rotation, maxDistance, player);
+
+    //    if (hit)
     //    {
-    //        agent.SetDestination(other.gameObject.transform.position);
-
+    //        Gizmos.color = Color.red;
+    //        Gizmos.DrawRay(transform.position, transform.forward * rayHit.distance);
+    //        Gizmos.DrawCube(transform.position + transform.forward * rayHit.distance, transform.lossyScale);
+    //        transform.LookAt(playerPos);
+    //        agent.SetDestination(playerPos.position);
     //    }
-
+    //    else
+    //    {
+    //        Gizmos.color = Color.green;
+    //        Gizmos.DrawRay(transform.position, transform.forward * maxDistance);
+    //    }
     //}
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            agent.SetDestination(other.gameObject.transform.position);
+
+        }
+
+    }
 }
