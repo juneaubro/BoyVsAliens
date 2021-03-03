@@ -7,12 +7,12 @@ public class ButtonScript : MonoBehaviour
     Vector3 downPos;
     Vector3 upPos;
 
-    bool pressed = false;
+    public static bool pressed = false;
 
     private void Start()
     {
         upPos = transform.position;
-        downPos = new Vector3(transform.position.x, transform.position.y - 5f, transform.position.z);
+        downPos = new Vector3(transform.position.x, transform.position.y - 8f, transform.position.z);
     }
 
     private void Update()

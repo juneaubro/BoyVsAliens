@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class DisappearingPlatform : MonoBehaviour
 {
-    public GameObject platform;
+    public MeshRenderer mr;
+    public BoxCollider bc;
 
     [SerializeField] private float waitInSeconds;
 
@@ -12,7 +13,13 @@ public class DisappearingPlatform : MonoBehaviour
     {
         yield return new WaitForSeconds(waitInSeconds);
 
-        platform.SetActive(false);
+        mr.enabled = false;
+        bc.enabled = false;
+
+        yield return new WaitForSeconds(waitInSeconds);
+
+        mr.enabled = true;
+        bc.enabled = true;
     }
 
     private void OnTriggerEnter(Collider other)
