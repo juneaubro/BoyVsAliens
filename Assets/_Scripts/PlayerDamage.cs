@@ -9,8 +9,6 @@ public class PlayerDamage : MonoBehaviour
         if (collision.gameObject.CompareTag("BadBlack"))
         {
             PlayerHealth.currentHealth -= 15;
-            Debug.Log("dmh");
         }
     }
-
 }
