@@ -9,14 +9,21 @@ public class ButtonScript : MonoBehaviour
 
     public static bool pressed = false;
 
+    bool temp;
+
     private void Start()
     {
         upPos = transform.position;
-        downPos = new Vector3(transform.position.x, transform.position.y - 8f, transform.position.z);
+        downPos = new Vector3(transform.position.x, transform.position.y - 9f, transform.position.z);
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.E) && pressed != true && temp == true)
+        {
+            pressed = true;
+        }
+
         if (pressed == true)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y - 0.005f, transform.position.z);
@@ -33,10 +40,7 @@ public class ButtonScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (Input.GetKeyDown(KeyCode.E) && pressed != true)
-            {
-                pressed = true;
-            }
+            temp = true;
         }
     }
 }
