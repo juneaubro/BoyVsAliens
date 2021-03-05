@@ -24,7 +24,7 @@ public class BlakAlienAI : MonoBehaviour
 
     private void Update()
     {
-        playerPos = GameObject.FindGameObjectWithTag("Player").transform;
+        // playerPos = GameObject.FindGameObjectWithTag("Player").transform;
 
         //if (hit)
         //{
