@@ -1538,6 +1538,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3354767b5fb2954babbee49fe341033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dashInput: {fileID: 0}
+  invertToggle: {fileID: 0}
+  s: {fileID: 0}
 --- !u!4 &798264876 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1424718301508747750, guid: 130c7e14e949fe84fb447108363cdd85, type: 3}
@@ -6821,11 +6824,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7516459622669780215, guid: 5dcd17479ed180346975afecc15f03cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1101.95
+      value: 1041.2
       objectReference: {fileID: 0}
     - target: {fileID: 7516459622669780215, guid: 5dcd17479ed180346975afecc15f03cc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 156.74
+      value: 159.75
       objectReference: {fileID: 0}
     - target: {fileID: 7516459622669780215, guid: 5dcd17479ed180346975afecc15f03cc, type: 3}
       propertyPath: m_LocalPosition.z

@@ -927,7 +927,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashInput: {fileID: 1321135981}
   invertToggle: {fileID: 36273128}
-  changeText: {fileID: 0}
+  s: {fileID: 494075448}
 --- !u!1 &173130302
 GameObject:
   m_ObjectHideFlags: 0
@@ -1924,6 +1924,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 166213285}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: SaveInputs
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 494075449}
         m_TargetAssemblyTypeName: SetVolume, Assembly-CSharp
         m_MethodName: SetLevel

@@ -8,7 +8,7 @@ public class MenuController : MonoBehaviour
 {
     public InputField dashInput;
     public Toggle invertToggle;
-    public Text changeText;
+    public Slider s;
 
     private void Awake()
     {
@@ -22,6 +22,7 @@ public class MenuController : MonoBehaviour
         {
             invertToggle.isOn = true;
         }
+        s.value = PlayerPrefs.GetFloat("Volume");
     }
 
     public void PlayGame()
@@ -52,6 +53,8 @@ public class MenuController : MonoBehaviour
         {
             PlayerPrefs.SetInt("Invert", 1);
         }
+
+        PlayerPrefs.SetFloat("Volume", s.value);
 
         PlayerPrefs.Save();
     }
