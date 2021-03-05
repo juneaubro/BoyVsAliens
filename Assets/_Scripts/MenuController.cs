@@ -10,8 +10,6 @@ public class MenuController : MonoBehaviour
     public Toggle invertToggle;
     public Text changeText;
 
-    bool change = false;
-
     private void Awake()
     {
         dashInput.text = PlayerPrefs.GetString("DashInputKey","LeftShift");
