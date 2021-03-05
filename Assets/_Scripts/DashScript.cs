@@ -16,17 +16,22 @@ public class DashScript : MonoBehaviour
 
     private float cooldownCounter = 10;
 
+    KeyCode input;
+
     PlayerMovementController playerMovementController;
-    
+
+    private void Awake()
+    {
+        input = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("DashInputKey", "C").ToUpper());
+    }
 
     private void Start()
     {
         playerMovementController = GetComponent<PlayerMovementController>();
-        
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && cooldownCounter > cooldown)
+        if (Input.GetKeyDown(input) && cooldownCounter > cooldown)
         {
             StartCoroutine(Dash());
 

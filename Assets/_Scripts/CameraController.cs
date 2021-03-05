@@ -19,7 +19,7 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * PlayerPrefs.GetInt("Invert",1) * mouseSens * Time.deltaTime;
 
         XRotation -= mouseY;
         XRotation = Mathf.Clamp(XRotation, -90f, 90f);
