@@ -6,32 +6,46 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovementController : MonoBehaviour
 {
-    [SerializeField] protected float movementSpeed = 5f;
-    [SerializeField] protected float jumpForce = 4f;
-    [SerializeField] protected float mass = 1f;
-    [SerializeField] protected float damping = 5f;
-    [SerializeField] protected float gravityMultiplier = 1f;
+    [SerializeField] private float movementSpeed = 20f;
+    [SerializeField] private float jumpForce = 60f;
+    [SerializeField] private float mass = 1f;
+    [SerializeField] private float damping = 6f;
+    [SerializeField] private float gravityMultiplier = 1f;
+    [SerializeField] private Joystick joystick;
 
-    protected CharacterController characterController;
-    protected float velocityY;
-    protected Vector3 currentImpact;
+    private bool jB;
+
+    private CharacterController characterController;
+    private float velocityY;
+    private float jumpCount = 0;
+    private Vector3 currentImpact;
 
     private readonly float gravity = Physics.gravity.y;
 
-    protected virtual void Awake()
+    private void Awake()
     {
         characterController = GetComponent<CharacterController>();
     }
 
-    protected virtual void Update()
+    private void FixedUpdate()
     {
         Move();
-        Jump();
+
+        if (jB)
+        {
+            Jump();
+            jB = false;
+        }
+
+        if (characterController.isGrounded)
+        {
+            jumpCount = 0;
+        }
     }
 
-    protected virtual void Move()
+    private void Move()
     {
-        Vector3 movementInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")).normalized; // normalized is for the greater good, but it makes testing in unity feel so clunky. the movement that is.
+        Vector3 movementInput = new Vector3(joystick.Horizontal, 0f, joystick.Vertical).normalized; // normalized is for the greater good, but it makes testing in unity feel so clunky. the movement that is.
 
         movementInput = transform.TransformDirection(movementInput);
 
@@ -66,15 +80,39 @@ public class PlayerMovementController : MonoBehaviour
         velocityY = 0f;
     }
 
-    protected virtual void Jump()
+    public void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (characterController.isGrounded)
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+
+
+            if (jumpCount == 0)
             {
+                ResetImpactY();
                 AddForce(Vector3.up, jumpForce);
+
+                if (characterController.isGrounded)
+                {
+                    jumpCount = 1;
+                }
+                else
+                {
+                    jumpCount = 2;
+                }
             }
-        }
+            else if (jumpCount == 1)
+            {
+                ResetImpactY();
+                AddForce(Vector3.up, jumpForce);
+
+                jumpCount = 2;
+            }
+        //}
+    }
+
+    public void jBtnC()
+    {
+        jB = true;
     }
 
     public void AddForce(Vector3 direction, float magnitude)

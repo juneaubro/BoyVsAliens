@@ -1,57 +1,57 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
 
-public class PlayerMovement : PlayerMovementController
-{
-    private int jumpCount = 0;
-    private AudioSource playerSounds;
+//public class PlayerMovement : PlayerMovementController
+//{
+//    private int jumpCount = 0;
+//    private AudioSource playerSounds;
     
    
 
 
-    protected override void Update()
-    {
+//    protected override void Update()
+//    {
     
-        base.Update();
+//        base.Update();
 
-        if (characterController.isGrounded)
-        {
-            jumpCount = 0;
-        }
-    }
+//        if (characterController.isGrounded)
+//        {
+//            jumpCount = 0;
+//        }
+//    }
 
-    protected override void Jump()
-    {
+//    protected override void Jump()
+//    {
       
        
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
+//        if (Input.GetKeyDown(KeyCode.Space))
+//        {
             
 
-            if (jumpCount == 0)
-            {
-                ResetImpactY();
-                AddForce(Vector3.up, jumpForce);
+//            if (jumpCount == 0)
+//            {
+//                ResetImpactY();
+//                AddForce(Vector3.up, jumpForce);
 
-                if (characterController.isGrounded)
-                {
-                    jumpCount = 1;
-                }
-                else
-                {
-                    jumpCount = 2;
-                }
-            }
-            else if(jumpCount == 1)
-            {
-                ResetImpactY();
-                AddForce(Vector3.up, jumpForce);
+//                if (characterController.isGrounded)
+//                {
+//                    jumpCount = 1;
+//                }
+//                else
+//                {
+//                    jumpCount = 2;
+//                }
+//            }
+//            else if(jumpCount == 1)
+//            {
+//                ResetImpactY();
+//                AddForce(Vector3.up, jumpForce);
                 
-                jumpCount = 2;
-            }
-        }
+//                jumpCount = 2;
+//            }
+//        }
 
        
-    }
-}
+//    }
+//}

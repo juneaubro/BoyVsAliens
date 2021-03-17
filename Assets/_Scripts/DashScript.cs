@@ -16,6 +16,8 @@ public class DashScript : MonoBehaviour
 
     private float cooldownCounter = 10;
 
+    private bool dashBtn;
+
     KeyCode input;
 
     PlayerMovementController playerMovementController;
@@ -29,15 +31,15 @@ public class DashScript : MonoBehaviour
     {
         playerMovementController = GetComponent<PlayerMovementController>();
     }
-    private void Update()
+    private void FixedUpdate()
     {
-        if (Input.GetKeyDown(input) && cooldownCounter > cooldown)
+        if (dashBtn && cooldownCounter > cooldown)
         {
             StartCoroutine(Dash());
 
             cooldownCounter = 0;
 
-            
+            dashBtn = false;
         }
 
         cooldownCounter += Time.deltaTime;
@@ -50,5 +52,10 @@ public class DashScript : MonoBehaviour
         yield return new WaitForSeconds(dashDura);
 
         playerMovementController.ResetImpact();
+    }
+
+    public void ClickedDashButton()
+    {
+        dashBtn = true;
     }
 }
