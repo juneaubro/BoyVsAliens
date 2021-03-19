@@ -13,18 +13,6 @@ public class DeathTrigger : MonoBehaviour
         spawn = GameObject.Find("Spawn").transform;
     }
 
-    private void Update()
-    {
-        if(PlayerHealth.currentHealth <= 0)
-        {
-            player.GetComponent<CharacterController>().enabled = false;
-            player.transform.position = spawn.position;
-            player.GetComponent<CharacterController>().enabled = true;
-
-            PlayerHealth.currentHealth = 100;
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
