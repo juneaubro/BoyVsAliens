@@ -5728,7 +5728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1519874047
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5949,9 +5949,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 733681445}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: PlayGame
+      - m_Target: {fileID: 1723909049}
+        m_TargetAssemblyTypeName: Pause, Assembly-CSharp
+        m_MethodName: UnPauseGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6844,7 +6844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1629427102}
   joystick: {fileID: 1252031206}
-  mouseSens: 100
+  mouseSens: 2
   rotSpeed: 0.5
   dir: -1
 --- !u!81 &1629427101

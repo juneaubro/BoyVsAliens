@@ -19,18 +19,11 @@ public class Pause : MonoBehaviour
         originalDampen = MovingPlatform.dampen;
     }
 
-    private void Update()
-    {
-        PauseGame();
-    }
-
-    private void PauseGame()
+    public void PauseGame()
     {
         if (Input.GetKeyDown(KeyCode.P) && !pause)
         {
             pauseScreen.SetActive(true);
-
-            Cursor.lockState = CursorLockMode.None;
 
             SpinningPlatform.SpinSpeed = 0f;
 
@@ -40,19 +33,18 @@ public class Pause : MonoBehaviour
 
             pause = true;
         }
-        else if (Input.GetKeyDown(KeyCode.P) && pause)
-        {
-            pauseScreen.SetActive(false);
+    }
 
-            Cursor.lockState = CursorLockMode.Locked;
+    public void UnPauseGame()
+    {
+        pauseScreen.SetActive(false);
 
-            SpinningPlatform.SpinSpeed = originalSpinSpeed;
+        SpinningPlatform.SpinSpeed = originalSpinSpeed;
 
-            MovingPlatform.dampen = originalDampen;
+        MovingPlatform.dampen = originalDampen;
 
-            Time.timeScale = 1;
+        Time.timeScale = 1;
 
-            pause = false;
-        }
+        pause = false;
     }
 }

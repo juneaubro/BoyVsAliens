@@ -28,8 +28,6 @@ public class Player : MonoBehaviour
     {
         pauseScreen.SetActive(false);
 
-        Cursor.lockState = CursorLockMode.Locked;
-
         SpinningPlatform.SpinSpeed = originalSpinSpeed;
 
         MovingPlatform.dampen = originalDampen;

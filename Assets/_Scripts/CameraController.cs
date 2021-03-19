@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
     private Touch initTouch = new Touch();
     public Camera cam;
     public Joystick joystick;
-    public float mouseSens = 100f;
+    public float mouseSens;
 
     //private float rotX = 0f;
     //private float rotY = 0f;
@@ -29,8 +29,8 @@ public class CameraController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float mouseX = joystick.Horizontal;
-        float mouseY = joystick.Vertical;
+        float mouseX = joystick.Horizontal * mouseSens;
+        float mouseY = joystick.Vertical * mouseSens;
 
         XRotation -= mouseY;
         XRotation = Mathf.Clamp(XRotation, -90f, 90f);
