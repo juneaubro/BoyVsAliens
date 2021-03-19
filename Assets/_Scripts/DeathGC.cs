@@ -18,11 +18,13 @@ public class DeathGC : MonoBehaviour
     {
         if (PlayerHealth.currentHealth <= 0)
         {
-            player.GetComponent<CharacterController>().enabled = false;
-            player.transform.position = spawn.transform.position;
-            player.GetComponent<CharacterController>().enabled = true;
+            //player.GetComponent<CharacterController>().enabled = false;
+            //player.transform.position = spawn.transform.position;
+            //player.GetComponent<CharacterController>().enabled = true;
 
-            PlayerHealth.currentHealth = 100;
+            //Player.LoadPlayer();
+
+            //PlayerHealth.currentHealth = 100;
         }
     }
 }

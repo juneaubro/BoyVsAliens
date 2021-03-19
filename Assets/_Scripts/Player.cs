@@ -19,6 +19,15 @@ public class Player : MonoBehaviour
         originalSpinSpeed = SpinningPlatform.SpinSpeed;
         originalDampen = MovingPlatform.dampen;
     }
+
+    private void Update()
+    {
+        if(PlayerHealth.currentHealth <= 0)
+        {
+            LoadPlayer();
+        }   
+    }
+
     public void SavePlayer()
     {
         SaveSystem.SavePlayer(this);
