@@ -9,6 +9,7 @@ TagManager:
   - BadGreen
   - BadBlack
   - LavaBlock
+  - Bullet
   layers:
   - Default
   - TransparentFX
