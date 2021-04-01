@@ -9,9 +9,16 @@ public class Player : MonoBehaviour
     private float originalSpinSpeed;
     private float originalDampen;
     private CharacterController cc;
+    private Inventory inventory;
 
     int health = PlayerHealth.currentHealth;
 
+    [SerializeField] private UI_Inventory uiInventory;
+    private void Awake()
+    {
+        inventory = new Inventory();
+        uiInventory.SetInventory(inventory);
+    }
     private void Start()
     {
         cc = GetComponent<CharacterController>();
@@ -22,7 +29,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if(PlayerHealth.currentHealth <= 0)
+        if (PlayerHealth.currentHealth <= 0)
         {
             LoadPlayer();
         }   
