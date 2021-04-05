@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class Items
 {
-    public enum ItemType
-    {
-        Gun,
-        HealthPotion,
-        Ammo,
-    }
-
-    public ItemType itemType;
-    public int amount;
+    public static int PotionAmount = 5;
+    public static int GunAmount = 0;
+    public static int AmmoAmount = 150;
 }

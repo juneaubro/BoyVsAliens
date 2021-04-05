@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    Items items;
     public GameObject pauseScreen;
     private float originalTimeScale;
     private float originalSpinSpeed;
     private float originalDampen;
     private CharacterController cc;
-    private Inventory inventory;
 
     int health = PlayerHealth.currentHealth;
 
     [SerializeField] private UI_Inventory uiInventory;
     private void Awake()
     {
-        inventory = new Inventory();
-        uiInventory.SetInventory(inventory);
     }
     private void Start()
     {
@@ -32,7 +30,10 @@ public class Player : MonoBehaviour
         if (PlayerHealth.currentHealth <= 0)
         {
             LoadPlayer();
-        }   
+        }
+
+        items = new Items();
+        uiInventory.SetItems(items);
     }
 
     public void SavePlayer()

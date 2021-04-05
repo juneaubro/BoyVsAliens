@@ -6,13 +6,14 @@ using UnityEngine.UI;
 
 public class UI_Inventory : MonoBehaviour
 {
-    private Inventory inventory;
+    Items items;
     private Transform itemSlotContainer;
     private Transform gunSlotTemplate;
     private Transform healthSlotTemplate;
     private Transform ammoSlotTemplate;
     [SerializeField] private Text ammoCount;
     [SerializeField] private Text healthPotionCount;
+    [SerializeField] private Text gunCount;
 
     private void Awake()
     {
@@ -22,20 +23,17 @@ public class UI_Inventory : MonoBehaviour
         ammoSlotTemplate = itemSlotContainer.Find("ammoSlotTemplate");
     }
 
-    public void SetInventory(Inventory inventory)
+    public void SetItems(Items items)
     {
-        this.inventory = inventory;
+        this.items = items;
         RefreshInventoryItems();
     }
 
     private void RefreshInventoryItems()
     {
-        for (int i = 0; i < inventory.GetItemsList().Count; i++)
-        {
-            Debug.Log("good boob");
-            healthPotionCount.text = inventory.GetItemsList()[i].amount.ToString();
-            ammoCount.text = inventory.GetItemsList()[i].amount.ToString();
-        }
+        healthPotionCount.text = Items.PotionAmount.ToString();
+        ammoCount.text = Items.AmmoAmount.ToString();
+        gunCount.text = Items.GunAmount.ToString();
 
         /*int x = 0;
         int y = 0;

@@ -32,6 +32,7 @@ public class PlayerWeapons : MonoBehaviour
             bullet.transform.parent = null;
             bullet.GetComponent<Rigidbody>().AddForce(bulletSpawn.forward * bulletSpeed, ForceMode.Impulse);
             shoot = false;
+            Items.GunAmount = Items.GunAmount - 1;
         }
     }
 
