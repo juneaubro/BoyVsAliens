@@ -12,6 +12,14 @@ public class MaynardAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
+    private void Update()
+    {
+        if(MaynardHealth.currentHealth <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -19,5 +27,14 @@ public class MaynardAI : MonoBehaviour
             agent.SetDestination(other.gameObject.transform.position);
         }
 
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.tag == "Bullet")
+        {
+            MaynardHealth.currentHealth -= 23;
+            Destroy(other.gameObject);
+        }
     }
 }
