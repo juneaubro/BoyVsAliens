@@ -20,6 +20,12 @@ public class DashScript : MonoBehaviour
 
     KeyCode input;
 
+    public AudioSource playerSounds;
+    public AudioClip jumpSound;
+    public AudioClip swooshSound;
+
+
+
     PlayerMovementController playerMovementController;
 
     private void Awake()
@@ -27,9 +33,11 @@ public class DashScript : MonoBehaviour
         input = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("DashInputKey", "C").ToUpper());
     }
 
-    private void Start()
+  
+    public void Start()
     {
         playerMovementController = GetComponent<PlayerMovementController>();
+        playerSounds = GetComponent<AudioSource>();
     }
     private void FixedUpdate()
     {
@@ -57,5 +65,7 @@ public class DashScript : MonoBehaviour
     public void ClickedDashButton()
     {
         dashBtn = true;
+        playerSounds.PlayOneShot(swooshSound);
+        playerSounds.PlayOneShot(jumpSound);
     }
 }

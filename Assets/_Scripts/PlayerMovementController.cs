@@ -13,6 +13,10 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private float gravityMultiplier = 1f;
     [SerializeField] private Joystick joystick;
 
+
+    public AudioSource playerSounds;
+    public AudioClip jumpSound;
+
     private bool jB;
 
     private CharacterController characterController;
@@ -26,7 +30,11 @@ public class PlayerMovementController : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
     }
+    private void Start()
+    {
+        playerSounds = GetComponent<AudioSource>();
 
+    }
     private void FixedUpdate()
     {
         Move();
@@ -106,13 +114,15 @@ public class PlayerMovementController : MonoBehaviour
                 AddForce(Vector3.up, jumpForce);
 
                 jumpCount = 2;
-            }
+                 
+        }
         //}
     }
 
     public void jBtnC()
     {
         jB = true;
+        playerSounds.PlayOneShot(jumpSound);
     }
 
     public void AddForce(Vector3 direction, float magnitude)

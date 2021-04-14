@@ -13,6 +13,11 @@ public class PlayerWeapons : MonoBehaviour
     private GameObject cam;
     private GameObject player;
 
+    public AudioSource gunSounds;
+    public AudioClip shootSound;
+    public AudioClip jamSound;
+
+   
     void FixedUpdate()
     {
         ShootLazerPistol();
@@ -33,11 +38,24 @@ public class PlayerWeapons : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        gunSounds = GetComponent<AudioSource>();
+    }
+
     public void shootbtn()
     {
         player = GameObject.Find("Player");
         cam = GameObject.Find("Main Camera");
         bulletSpawn = GameObject.Find("BulletSpawn").transform;
-        shoot = true;
+        if(Items.GunAmount!=0)
+        {
+            shoot = true;
+            gunSounds.PlayOneShot(shootSound);
+        }
+        else
+        {
+            gunSounds.PlayOneShot(jamSound);
+        }
     }
 }
