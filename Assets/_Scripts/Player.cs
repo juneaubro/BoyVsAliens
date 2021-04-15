@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     private float originalSpinSpeed;
     private float originalDampen;
     private CharacterController cc;
+    private PlayerData data;
 
     int health = PlayerHealth.currentHealth;
 
@@ -23,6 +24,10 @@ public class Player : MonoBehaviour
         originalTimeScale = Time.timeScale;
         originalSpinSpeed = SpinningPlatform.SpinSpeed;
         originalDampen = MovingPlatform.dampen;
+        if(data == null)
+        {
+            SavePlayer();
+        }
     }
 
     private void Update()
@@ -53,7 +58,7 @@ public class Player : MonoBehaviour
 
         Pause.pause = false;
 
-        PlayerData data = SaveSystem.LoadPlayer();
+        data = SaveSystem.LoadPlayer();
 
         PlayerHealth.currentHealth = data.health;
         Vector3 position = new Vector3(data.position[0], data.position[1], data.position[2]);

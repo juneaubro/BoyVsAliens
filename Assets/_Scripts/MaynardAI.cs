@@ -2,22 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class MaynardAI : MonoBehaviour
 {
     NavMeshAgent agent;
+    public Text killMaynardQuest;
 
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-    }
-
-    private void Update()
-    {
-        if(MaynardHealth.currentHealth <= 0)
-        {
-            Destroy(this.gameObject);
-        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -34,6 +28,11 @@ public class MaynardAI : MonoBehaviour
         if(other.gameObject.tag == "Bullet")
         {
             MaynardHealth.currentHealth -= 23;
+            if (MaynardHealth.currentHealth <= 0)
+            {
+                killMaynardQuest.color = UnityEngine.Color.green;
+                Destroy(this.gameObject);
+            }
             Destroy(other.gameObject);
         }
     }
